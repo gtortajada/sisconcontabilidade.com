@@ -3,148 +3,58 @@
 import {
   Box,
   Button,
-  Center,
   Container,
-  Group,
+  Flex,
   Stack,
   Text,
   Title,
 } from "@mantine/core";
-import {
-  IconBrandInstagram,
-  IconBrandWhatsapp,
-  IconPhone,
-} from "@tabler/icons-react";
+import Image from "next/image";
+
 export default function Page() {
   return (
     <Box
       style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #E8E8E8 0%, #f5f5f5 100%)",
-        backgroundImage: "url(/images/construction-background.jpg)",
+        backgroundImage: "url('/images/bg-resolucao-alta.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        position: "relative",
-        overflow: "hidden",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        minWidth: "100vw",
       }}
     >
-      <Container size="md" style={{ position: "relative", zIndex: 2 }}>
-        <Center style={{ minHeight: "100vh" }}>
-          <Stack
-            align="center"
-            gap="xl"
-            style={{ textAlign: "center", maxWidth: "600px" }}
-          >
-            <Title
-              order={1}
-              size="3rem"
-              fw={700}
-              style={{
-                color: "#0160DF",
-                marginBottom: "10px",
-                textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-              }}
-            >
-              Siscon Contabilidade
-            </Title>
-
-            <Title
-              order={2}
-              size="2rem"
-              fw={500}
-              style={{
-                color: "#333",
-                marginBottom: "30px",
-              }}
-            >
-              Site em construção
-            </Title>
-            <Group justify="center" gap="md" style={{ marginBottom: "60px" }}>
-              <Button
-                leftSection={<IconPhone size={20} />}
-                size="lg"
-                style={{
-                  backgroundColor: "#0160DF",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "25px",
-                  padding: "12px 24px",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  boxShadow: "0 4px 15px rgba(1, 96, 223, 0.3)",
-                  transition: "all 0.3s ease",
-                }}
-                component="a"
-                href="tel:+554430266080"
-              >
-                Telefone
-              </Button>
-              <Button
-                leftSection={<IconBrandWhatsapp size={20} />}
-                size="lg"
-                style={{
-                  backgroundColor: "#25D366",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "25px",
-                  padding: "12px 24px",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
-                  transition: "all 0.3s ease",
-                }}
-                component="a"
-                href="https://wa.me/5511999999999"
-                target="_blank"
-              >
-                WhatsApp
-              </Button>
-              <Button
-                leftSection={<IconBrandInstagram size={20} />}
-                size="lg"
-                style={{
-                  backgroundColor: "#d62976",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "25px",
-                  padding: "12px 24px",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  boxShadow: "0 4px 15px rgba(228, 64, 95, 0.3)",
-                  transition: "all 0.3s ease",
-                }}
-                component="a"
-                href="https://instagram.com/siscon_contabilidade"
-                target="_blank"
-              >
-                Instagram
-              </Button>
-            </Group>
-          </Stack>
-        </Center>
+      <Container px="xl">
+        <Stack>
+          <Flex direction="column" wrap="nowrap" justify="flex-start" gap="xl">
+            <Image
+              src="/images/siscon-horizontal-branco.svg"
+              alt="Logo Siscon Contabilidade e Assessoria"
+              width={200}
+              height={200}
+            />
+            <Title c="#ffe139" fw="700" style={{ fontSize: "3rem" }}>Site em construção</Title>
+            <Flex direction="column" justify="center" gap="md">
+              <Text fw="700" size="xl">Siscon Contabilidade e Assessoria</Text>
+              <Flex direction="column">
+                <Text>Avenida Dr. Alexandre Rasgulaeff, 752.</Text>
+                <Text>Jardim Alvorada, Maringá.</Text>
+                <Text>(44) 3026-6080.</Text>
+              </Flex>
+              <Text> Segunda à sexta-feira - 8h às 11h30 e 13h às 18h</Text>
+            </Flex>
+            <Button
+              c="#012552"
+              bg="#83eda3"
+              w="50%"
+              maw="250"
+              component="a"
+              href="https://wa.me/554430266080"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Entre em contato</Button>
+          </Flex>
+        </Stack>
       </Container>
-
-      <Box
-        component="a"
-        style={{
-          position: "fixed",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backgroundColor: "rgba(1, 96, 223, 0.9)",
-          color: "white",
-          textAlign: "center",
-          padding: "15px",
-          zIndex: 3,
-          backdropFilter: "blur(10px)",
-        }}
-        href="https://gtortajada.online"
-        target="_blank"
-      >
-        <Text size="sm" fw={500}>
-          Copyright © by Gustavo Tortajada.
-        </Text>
-      </Box>
     </Box>
   );
 }
