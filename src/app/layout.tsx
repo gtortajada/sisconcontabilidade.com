@@ -8,8 +8,8 @@ import {
 } from "@mantine/core";
 
 export const metadata = {
-  title: "My Mantine app",
-  description: "I have followed setup instructions carefully",
+  title: "Siscon Contabilidade",
+  description: "Contabilidade para impulssionar o seu negócio",
 };
 
 export default function RootLayout({
