@@ -1,11 +1,13 @@
 import "@mantine/core/styles.css";
 import "./globals.css";
 
+import { Navbar } from "@/components/navbar";
 import {
   ColorSchemeScript,
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Siscon Contabilidade",
@@ -23,7 +25,11 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <MantineProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </MantineProvider>
       </body>
     </html>
   );
