@@ -1,35 +1,22 @@
 "use client";
 
-import { IconBrandInstagram, IconBrandTwitter, IconBrandYoutube } from '@tabler/icons-react';
-import { ActionIcon, Container, Group, Text } from '@mantine/core';
-import classes from './footer.module.css';
+import {
+  IconBrandInstagram,
+  IconBrandTwitter,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
+import { ActionIcon, Container, Group, Text } from "@mantine/core";
+import classes from "./footer.module.css";
 
 const data = [
   {
-    title: 'About',
+    title: "Mapa do site",
     links: [
-      { label: 'Features', link: '#' },
-      { label: 'Pricing', link: '#' },
-      { label: 'Support', link: '#' },
-      { label: 'Forums', link: '#' },
-    ],
-  },
-  {
-    title: 'Project',
-    links: [
-      { label: 'Contribute', link: '#' },
-      { label: 'Media assets', link: '#' },
-      { label: 'Changelog', link: '#' },
-      { label: 'Releases', link: '#' },
-    ],
-  },
-  {
-    title: 'Community',
-    links: [
-      { label: 'Join Discord', link: '#' },
-      { label: 'Follow on Twitter', link: '#' },
-      { label: 'Email newsletter', link: '#' },
-      { label: 'GitHub discussions', link: '#' },
+      { link: "/home", label: "Home" },
+      { link: "/services", label: "Serviços" },
+      { link: "/aboutUs", label: "Sobre nós" },
+      { link: "/testimonials", label: "Depoimentos" },
+      { link: "/faq", label: "Perguntas frequentes" },
     ],
   },
 ];
@@ -37,7 +24,7 @@ const data = [
 export function Footer() {
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
-      <Text<'a'>
+      <Text<"a">
         key={index}
         className={classes.link}
         component="a"
@@ -71,7 +58,12 @@ export function Footer() {
           © 2020 mantine.dev. All rights reserved.
         </Text>
 
-        <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
+        <Group
+          gap={0}
+          className={classes.social}
+          justify="flex-end"
+          wrap="nowrap"
+        >
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandTwitter size={18} stroke={1.5} />
           </ActionIcon>

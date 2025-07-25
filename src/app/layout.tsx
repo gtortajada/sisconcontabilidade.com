@@ -1,18 +1,30 @@
 import "@mantine/core/styles.css";
 import "./globals.css";
 
+import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import {
   ColorSchemeScript,
   MantineProvider,
+  createTheme,
   mantineHtmlProps,
 } from "@mantine/core";
-import { Footer } from "@/components/footer";
 
 export const metadata = {
   title: "Siscon Contabilidade",
   description: "Contabilidade para impulssionar o seu negócio",
 };
+
+const myTheme = createTheme({
+  fontFamily: "Aeonik, sans-serif",
+  headings: {
+    fontFamily: "Aeonik, sans-serif",
+    sizes: {
+      h1: { fontSize: "3rem", fontWeight: "700" },
+      h2: { fontSize: "2.5rem", fontWeight: "300" },
+    },
+  },
+});
 
 export default function RootLayout({
   children,
@@ -25,7 +37,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>
+        <MantineProvider theme={myTheme}>
           <Navbar />
           {children}
           <Footer />
