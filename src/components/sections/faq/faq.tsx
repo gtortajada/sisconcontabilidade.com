@@ -37,7 +37,7 @@ export function FAQ() {
 
   return (
     <Box bg="#02BDEF" p="sm">
-      <Title order={2} m="md" ta="center" c="#0161DF">Dúvidas Frequentes</Title>
+      <Title order={2} m="md" ta="center" c="#0161DF"><b>Dúvidas Frequentes</b></Title>
       <Accordion
         m="lg"
         chevronPosition="right"
