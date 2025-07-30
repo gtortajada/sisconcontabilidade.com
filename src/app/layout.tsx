@@ -1,8 +1,8 @@
 import "@mantine/core/styles.css";
 import "./globals.css";
 
-import { Footer } from "@/components/footer";
-import { Navbar } from "@/components/navbar";
+import Footer from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import {
   ColorSchemeScript,
   MantineProvider,
