@@ -54,7 +54,7 @@ export function FAQ() {
       <Accordion.Panel>{item.description}</Accordion.Panel>
     </Accordion.Item>
   ));
-
+ // TODO: Deixar o primeiro item do accordion aberto por padrão
   return (
     <Box bg="#e3edfb" py={{ base: rem(20), sm: rem(20) }}>
       <Container size="sm">
