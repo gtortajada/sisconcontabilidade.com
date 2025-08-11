@@ -1,15 +1,15 @@
 "use client";
 
+import { CtaButton } from "@/components/ctaButton";
 import {
   AspectRatio,
   Box,
-  Button,
   Container,
   Divider,
   Grid,
   Stack,
   Text,
-  Title,
+  Title
 } from "@mantine/core";
 import Image from "next/image";
 
@@ -40,7 +40,7 @@ const testimonials = [
   },
 ];
 
-export function Testimonials() {
+export default function Testimonials() {
   return (
     <Box bg="#F2FEFF" py={{ base: "xl", md: 120 }}>
       <Container size="lg">
@@ -181,9 +181,7 @@ export function Testimonials() {
             </AspectRatio>
           </Stack>
 
-          <Button size="lg" radius="xl" bg="#0161DF">
-            Quero ser aprovado
-          </Button>
+          <CtaButton>Fale com nossos especialistas agora</CtaButton>
         </Stack>
       </Container>
     </Box>
