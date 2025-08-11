@@ -47,7 +47,7 @@ const data = [
   },
 ];
 
-export function FAQ() {
+export default function FAQ() {
   const items = data.map((item) => (
     <Accordion.Item key={item.value} value={item.value}>
       <Accordion.Control>{item.value}</Accordion.Control>
