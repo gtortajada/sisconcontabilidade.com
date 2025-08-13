@@ -1,8 +1,9 @@
 "use client";
 
-import { Box, Button, Container, Flex, Stack, Text, Title } from "@mantine/core";
+import { CtaButton } from "@/components/ctaButton";
+import { Box, Container, Flex, Stack, Text, Title, rem } from "@mantine/core";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import Marquee from "react-fast-marquee";
 
 const logos = [
   { name: "NAC", src: "/images/logoClientes/nac.png" },
@@ -15,198 +16,338 @@ const logos = [
   { name: "Akon", src: "/images/logoClientes/akon.png" },
 ];
 
-const CtaButton = (props: any) => (
-  <Button
-    bg="#83EDA3"
-    c="#021630"
-    size="lg"
-    radius="md"
-    fz={{ base: 14, md: 16 }}
-    fw={700}
-    {...props}
-  />
-);
+const logosForMarquee = [...logos, ...logos, ...logos, ...logos];
+
+//TODO: Falta adicionar o parallax na foto de background.
 
 export default function AboutUs() {
-  const [isLogosVisible, setIsLogosVisible] = useState(false);
-  const logosRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsLogosVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = logosRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, []);
-
   return (
     <>
-      <style>
-        {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}
-      </style>
+      {/* Desktop View */}
+      <Box visibleFrom="md">
+        <Box bg="#F2FEFF" style={{ position: "relative", overflow: "hidden" }}>
+          <Box
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "calc(100% - 110px)", // Ajuste de altura imagem bg azul + mesma cor da section de baixo
+              zIndex: 0,
+            }}
+          >
+            <Image
+              src="/images/bgAboutUs.jpg"
+              alt="Background Image"
+              fill
+              style={{
+                objectFit: "cover",
+                objectPosition: "right center",
+              }}
+            />
+          </Box>
 
-      <Box bg="#021630">
-        <Box bg="#0161DF" py={{ base: "xl", md: "80px" }}>
-          <Container size="xl">
-            <Flex
-              direction={{ base: "column-reverse", md: "row" }}
-              gap={{ base: "xl", md: "60px" }}
-              align={{ base: "center", md: "flex-start" }}
-            >
-              <Box flex={{ base: "none", md: "1" }}>
+          <Box style={{ position: "relative", zIndex: 1 }}>
+            <Box pt={rem(80)} pb={rem(80)}>
+              <Container size="xl">
+                <Flex direction="row" gap={rem(60)} align="flex-start">
+                  <Box flex="1">
+                    <Box
+                      bg="white"
+                      p={rem(40)}
+                      style={{
+                        borderRadius: rem(16),
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                      }}
+                    >
+                      <Title
+                        order={2}
+                        c="#0161DF"
+                        fz={rem(36)}
+                        fw={700}
+                        mb="lg"
+                        lh={1.2}
+                        ta="center"
+                      >
+                        Mais do que números, contamos histórias.
+                      </Title>
+                      <Stack gap="md">
+                        <Text c="#333" fz={rem(16)} lh={1.6}>
+                          Fundado em 1990, o Siscon Contabilidade é sinônimo de
+                          tradição e modernidade oferecendo o melhor atendimento
+                          contábil às empresas de todo o Brasil.
+                        </Text>
+                        <Text c="#333" fz={rem(16)} lh={1.6}>
+                          Com sede própria em Maringá-PR, hoje contamos com{" "}
+                          <Text component="span" fw={700}>
+                            mais de 30 colaboradores
+                          </Text>{" "}
+                          altamente qualificados e em constante atualização,
+                          trabalhando todos os dias para facilitar a sua rotina
+                          empresarial.
+                        </Text>
+                        <Text c="#333" fz={rem(16)} lh={1.6}>
+                          <Text component="span" fw={700}>
+                            Milhares de empresas já passaram por aqui, algumas
+                            estão conosco desde nossa fundação
+                          </Text>{" "}
+                          e, com muito orgulho, contribuímos para o crescimento
+                          de cada uma delas.
+                        </Text>
+                        <Text c="#333" fz={rem(16)} lh={1.6} fw={700}>
+                          Nossa missão é facilitar a gestão empresarial, criando
+                          uma relação de confiança com quem sabe o que é
+                          empreender no Brasil.
+                        </Text>
+                        <CtaButton>Tire suas dúvidas pelo WhatsApp</CtaButton>
+                      </Stack>
+                    </Box>
+                  </Box>
+
+                  <Box w="30%" ta="center" pt="xl">
+                    <Stack gap="lg" align="center">
+                      <Box
+                        w={rem(250)}
+                        h={rem(315)}
+                        style={{
+                          borderRadius: rem(16),
+                          overflow: "hidden",
+                        }}
+                      >
+                        <Image
+                          src="/images/claudemir.png"
+                          alt="Claudemir Matiusso"
+                          width={541}
+                          height={681}
+                          quality={75}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center",
+                          }}
+                        />
+                      </Box>
+                      <Title order={3} c="white" fz={rem(28)} fw={700} mb="xs">
+                        Claudemir Matiusso
+                      </Title>
+                      <Text
+                        c="white"
+                        fz={rem(16)}
+                        lh={1.6}
+                        ta="center"
+                        maw={rem(320)}
+                      >
+                        CEO da Siscon, empresário e contador. Foi conselheiro do
+                        Conselho Regional de Contabilidade (CRC-PR) por 8 anos e
+                        atuou como Vice-Presidente da Câmara de Registro
+                        (CRC-PR) por 4 anos.
+                      </Text>
+                    </Stack>
+                  </Box>
+                </Flex>
+              </Container>
+            </Box>
+
+            <Box pb={rem(120)}>
+              <Container size="xl">
                 <Box
                   bg="white"
-                  p={{ base: "xl", md: "40px" }}
-                  style={{ borderRadius: "16px" }}
-                >
-                  <Title
-                    order={2}
-                    c="#0161DF"
-                    fz={{ base: 28, md: 36 }}
-                    fw={700}
-                    mb="lg"
-                    lh={1.2}
-                    ta="center"
-                  >
-                    Mais do que números, contamos histórias.
-                  </Title>
-                  <Stack gap="md">
-                    <Text c="#333" fz={{ base: 14, md: 16 }} lh={1.6}>
-                      Fundado em 1990, o Siscon Contabilidade é sinônimo de tradição e modernidade
-                      oferecendo o melhor atendimento contábil às empresas de todo o Brasil.
-                    </Text>
-                    <Text c="#333" fz={{ base: 14, md: 16 }} lh={1.6}>
-                      Com sede própria em Maringá-PR, hoje contamos com{" "}
-                      <Text component="span" fw={700}>
-                        mais de 30 colaboradores
-                      </Text>{" "}
-                      altamente qualificados e em constante atualização, trabalhando todos os dias
-                      para facilitar a sua rotina empresarial.
-                    </Text>
-                    <Text c="#333" fz={{ base: 14, md: 16 }} lh={1.6}>
-                      <Text component="span" fw={700}>
-                        Milhares de empresas já passaram por aqui, algumas estão conosco desde nossa
-                        fundação
-                      </Text>{" "}
-                      e, com muito orgulho, contribuímos para o crescimento de cada uma delas.
-                    </Text>
-                    <Text c="#333" fz={{ base: 14, md: 16 }} lh={1.6}>
-                      <Text component="span" fw={700}>
-                        Nossa missão é facilitar a gestão empresarial, criando uma relação de
-                        confiança com quem sabe o que é empreender no Brasil.
-                      </Text>
-                    </Text>
-                    <CtaButton>Conheça nossos serviços</CtaButton>
-                  </Stack>
-                </Box>
-              </Box>
-              <Box w={{ base: "100%", md: "30%" }} ta="center">
-                <Stack gap="lg" align="center">
-                  <Box
-                    w={{ base: 200, md: 250 }}
-                    h={{ base: 200, md: 250 }}
-                    style={{ borderRadius: "50%", overflow: "hidden" }}
-                  >
-                    <Image
-                      src="/images/claudemir.png"
-                      alt="Claudemir Matiusso"
-                      width={250}
-                      height={250}
-                      quality={75}
-                      style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                    />
-                  </Box>
-                  <Title order={3} c="white" fz={{ base: 24, md: 28 }} fw={700} mb="xs">
-                    Claudemir Matiusso
-                  </Title>
-                  <Text c="white" fz={{ base: 14, md: 16 }} lh={1.6} ta="center" maw={280}>
-                    CEO, empresário e contador. Foi conselheiro do Conselho Regional de
-                    Contabilidade (CRC-PR) por 8 anos e atuou como Vice-Presidente da Câmera de
-                    Registro (CRC-PR) por 4 anos.
-                  </Text>
-                </Stack>
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
-
-        <Box ref={logosRef} pt={{ base: "xl", md: "80px" }} pb={{ base: "xl", md: "120px" }}>
-          <Container size="xl" px={{ base: 0, sm: "md" }}>
-            <Box
-              p={{ md: "40px" }}
-              bg={{ md: "white" }}
-              radius={{ md: "lg" }}
-              shadow={{ md: "sm" }}
-            >
-              <Title
-                order={3}
-                c={{ base: "#0161DF", md: "#021630" }}
-                fz={{ base: 22, md: 28 }}
-                fw={700}
-                ta="center"
-                mb="xl"
-              >
-                Empresas que confiam na gente:
-              </Title>
-
-              <Box style={{ overflow: "hidden" }}>
-                <Flex
-                  hiddenFrom="md"
-                  gap="40px"
-                  align="center"
-                  wrap="nowrap"
+                  p={rem(40)}
                   style={{
-                    animation: isLogosVisible ? "scroll 30s linear infinite" : "none",
+                    borderRadius: rem(16),
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                   }}
                 >
-                  {[...logos, ...logos].map((logo, index) => (
-                    <Box key={`${logo.name}-${index}`} w={120} h={80} style={{ flexShrink: 0 }}>
-                      <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        width={120}
-                        height={80}
-                        quality={75}
-                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                      />
-                    </Box>
-                  ))}
-                </Flex>
+                  <Title
+                    order={3}
+                    c="#0161DF"
+                    fz={rem(28)}
+                    fw={700}
+                    ta="center"
+                    mb="xl"
+                  >
+                    Empresas que confiam na Siscon:
+                  </Title>
+                  <Flex
+                    justify="space-between"
+                    align="center"
+                    wrap="nowrap"
+                    gap={rem(20)}
+                  >
+                    {logos.map((logo) => (
+                      <Box key={logo.name} w={rem(110)} h={rem(70)}>
+                        <Image
+                          src={logo.src}
+                          alt={logo.name}
+                          width={110}
+                          height={70}
+                          quality={75}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                          }}
+                        />
+                      </Box>
+                    ))}
+                  </Flex>
+                </Box>
+              </Container>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
 
-                <Flex visibleFrom="md" justify="center" align="center" gap={40} wrap="wrap">
-                  {logos.map((logo) => (
-                    <Box key={logo.name} w={130} h={80}>
+      {/* Mobile View */}
+      <Box hiddenFrom="md">
+        <Box
+          style={{
+            position: "relative",
+          }}
+        >
+          <Image
+            src="/images/bgAboutUs.jpg"
+            alt="Background Image"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+          <Box
+            bg="rgba(1, 97, 223, 0.8)"
+            py="xl"
+            style={{ position: "relative", zIndex: 1 }}
+          >
+            <Container size="xl">
+              <Flex direction="column-reverse" gap="xl" align="center">
+                <Box flex={{ base: "none", md: "1" }}>
+                  <Box
+                    bg="white"
+                    p="xs"
+                    style={{
+                      borderRadius: rem(3),
+                      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                    }}
+                  >
+                    <Title
+                      order={2}
+                      c="#0161DF"
+                      fz={rem(28)}
+                      fw={700}
+                      mb="lg"
+                      lh={1.2}
+                      ta="center"
+                    >
+                      Mais do que números, contamos histórias.
+                    </Title>
+                    <Stack gap="md">
+                      <Text c="#333" fz={rem(14)} lh={1.6}>
+                        Fundado em 1990, o Siscon Contabilidade é sinônimo de
+                        tradição e modernidade oferecendo o melhor atendimento
+                        contábil às empresas de todo o Brasil.
+                      </Text>
+                      <Text c="#333" fz={rem(14)} lh={1.6}>
+                        Com sede própria em Maringá-PR, hoje contamos com{" "}
+                        <Text component="span" fw={700}>
+                          mais de 30 colaboradores
+                        </Text>{" "}
+                        altamente qualificados e em constante atualização,
+                        trabalhando todos os dias para facilitar a sua rotina
+                        empresarial.
+                      </Text>
+                      <Text c="#333" fz={rem(14)} lh={1.6}>
+                        <Text component="span" fw={700}>
+                          Milhares de empresas já passaram por aqui, algumas
+                          estão conosco desde nossa fundação
+                        </Text>{" "}
+                        e, com muito orgulho, contribuímos para o crescimento de
+                        cada uma delas.
+                      </Text>
+                      <Text c="#333" fz={rem(14)} lh={1.6} fw={700}>
+                        Nossa missão é facilitar a gestão empresarial, criando
+                        uma relação de confiança com quem sabe o que é
+                        empreender no Brasil.
+                      </Text>
+                      <CtaButton>Tire suas dúvidas pelo WhatsApp</CtaButton>
+                    </Stack>
+                  </Box>
+                </Box>
+                <Box w="100%" ta="center" pt="xl">
+                  <Stack gap="lg" align="center">
+                    <Box
+                      w={rem(200)}
+                      h={rem(200)}
+                      style={{ borderRadius: "50%", overflow: "hidden" }}
+                    >
                       <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        width={130}
-                        height={80}
+                        src="/images/claudemir.png"
+                        alt="Claudemir Matiusso"
+                        width={541}
+                        height={681}
                         quality={75}
-                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          objectPosition: "center 20%",
+                        }}
                       />
                     </Box>
-                  ))}
-                </Flex>
-              </Box>
+                    <Title order={3} c="white" fz={rem(24)} fw={700} mb="xs">
+                      Claudemir Matiusso
+                    </Title>
+                    <Text
+                      c="white"
+                      fz={rem(14)}
+                      lh={1.6}
+                      ta="center"
+                      maw={rem(320)}
+                    >
+                      CEO da Siscon, empresário e contador. Foi conselheiro do
+                      Conselho Regional de Contabilidade (CRC-PR) por 8 anos e
+                      atuou como Vice-Presidente da Câmara de Registro (CRC-PR)
+                      por 4 anos.
+                    </Text>
+                  </Stack>
+                </Box>
+              </Flex>
+            </Container>
+          </Box>
+        </Box>
+        <Box
+          bg="#ffffffff"
+          py="md"
+          style={{
+            position: "relative",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+          }}
+        >
+          <Container fluid px={0}>
+            <Title
+              order={3}
+              c="#0161DF"
+              fz={rem(22)}
+              fw={700}
+              ta="center"
+              mb="xl"
+            >
+              Empresas que confiam na Siscon:
+            </Title>
+            <Box py="xs">
+              <Marquee speed={40}>
+                {logosForMarquee.map((logo, index) => (
+                  <Image
+                    key={index}
+                    src={logo.src}
+                    alt={`Logo da empresa parceira ${index + 1}`}
+                    height={80}
+                    width={110}
+                    style={{ objectFit: "contain", margin: "0 2rem" }}
+                  />
+                ))}
+              </Marquee>
             </Box>
           </Container>
         </Box>
