@@ -42,7 +42,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <Box bg="#F2FEFF" py={{ base: "xl", md: 120 }}>
+    <Box bg="#F2FEFF" py={{ base: "xl", md: 60 }}>
       <Container size="lg">
         <Stack align="center" gap="xl">
           <Title
@@ -62,10 +62,9 @@ export default function Testimonials() {
                   <Grid.Col key={index} span={6}>
                     <Stack
                       p="xl"
-                      bg="white"
                       h="100%"
                       style={{
-                        border: "1px solid #228BE6",
+                        border: "3px solid #228BE6",
                         borderRadius: "8px",
                       }}
                       align="center"
