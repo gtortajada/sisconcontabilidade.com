@@ -1,8 +1,193 @@
+import { Box, Text, Title, Stack, Card, SimpleGrid, rem } from '@mantine/core';
+import Image from 'next/image';
+import { CtaButton } from '@/components/ctaButton';
+
+const cardData = [
+  {
+    id: 1,
+    icon: '/images/home/segurança.svg',
+    title: 'Você protegido pelo Seguro de Responsabilidade Civil.',
+    description: 'Todos os clientes contam com a cobertura de responsabilidade civil. Se houver imprevistos fiscais e/ou contáveis, o seguro cobre todos os custos. — você não paga nada.'
+  },
+  {
+    id: 2,
+    icon: '/images/home/segmento.svg',
+    title: 'Atendimento para Todos os Seguimentos.',
+    description: 'Estamos preparados para atender empresas de todos os portes e setores, com soluções sob medida para as particularidades do seu negócio.'
+  },
+  {
+    id: 3,
+    icon: '/images/home/brasil.svg',
+    title: 'Clientes por Todo o Território Nacional.',
+    description: 'Atendemos empresas de todo o Brasil, de forma 100% remota com a mesma agilidade e qualidade do atendimento presencial.'
+  }
+];
+
+  //TODO: Adicionar maxWidth nos cards e nos textos
+  //TODO: Fazer a imagem de bg descer um pouco mais.
+  //TODO: Ajustar corretamente filtro azul em cima da foto de bg.
+
 export default function Hero() {
   return (
-    <section className="hero">
-      <h1>Welcome to Our Site</h1>
-      <h2>Its your section Home.</h2>
-    </section>
+    <Box>
+      <Box
+        style={{
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          color: 'white',
+          backgroundImage: 'url(/images/home/bg-header.webp)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+        h={{ base: '70vh', md: '85vh' }}
+        mih={{ base: 'auto', md: '600px' }}
+        mah={{ base: 'auto', md: '1000px' }}
+        pb={{ base: 0, md: rem(200) }}
+      >
+        <Stack align="center" style={{ zIndex: 1 }} p="sm">
+          <Title
+            order={1}
+            px={{ base: 'xl', sm: '0' }}
+            fz={{ base: rem(42), sm: rem(56) }}
+            fw={700}
+            lts={-1}
+            lh={1}
+            mb="sm"
+          >
+            Há mais de 35 anos facilitando a rotina do empresário brasileiro.
+          </Title>
+          <Text
+            px={{ base: 'md', sm: '0' }}
+            fz={{ base: rem(24), sm: rem(28) }}
+            lh={1.1}
+            mb="xl"
+            maw={{ base: '80%', sm: '60%' }}
+          >
+            Mais de 400 empresas confiam no Siscon Contabilidade para crescer com segurança, economia e tranquilidade fiscal.
+          </Text>
+          <CtaButton>Fale com nossos especialistas</CtaButton>
+        </Stack>
+        <Box
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 47, 147, 0.46)',
+            zIndex: 0,
+          }}
+        />
+      </Box>
+
+      <Box 
+        bg="white" 
+        py={{ base: rem(32), sm: rem(80) }} 
+        px="md" 
+        mt={{ base: 0, md: rem(-150) }}
+      >
+        <Stack 
+          gap="lg" 
+          align="center"
+          hiddenFrom="md"
+        >
+          {cardData.map((card) => (
+            <Card
+              key={card.id}
+              shadow="md"
+              radius="md"
+              padding="xl"
+              withBorder
+              style={{
+                borderColor: '#0161DF',
+                borderWidth: '2px',
+                backgroundColor: 'white',
+                width: '80%',
+                maxWidth: '400px',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <Stack gap="sm" align="center" style={{ textAlign: 'center', flex: 1 }}>
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={48}
+                  height={48}
+                  style={{ filter: 'brightness(0) saturate(100%) invert(33%) sepia(88%) saturate(3578%) hue-rotate(209deg) brightness(99%) contrast(101%)' }}
+                />
+                <Title
+                  order={4}
+                  size="h4"
+                  fw={600}
+                  lh={1.3}
+                  c="#0161DF"
+                >
+                  {card.title}
+                </Title>
+                <Text size="sm" lh={1.3} c="black" style={{ flex: 1 }}>
+                  {card.description}
+                </Text>
+              </Stack>
+            </Card>
+          ))}
+        </Stack>
+
+        <SimpleGrid
+          cols={{ base: 1, sm: 3 }}
+          spacing={{ base: 'lg', sm: 'xl' }}
+          verticalSpacing={{ base: 'lg', sm: 'xl' }}
+          visibleFrom="md"
+          style={{
+            position: 'relative',
+            zIndex: 2,
+          }}
+        >
+          {cardData.map((card) => (
+            <Card
+              key={card.id}
+              shadow="md"
+              radius="md"
+              padding="xl"
+              withBorder
+              style={{
+                borderColor: '#0161DF',
+                borderWidth: '2px',
+                backgroundColor: 'white',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+            >
+              <Stack gap="sm" align="center" style={{ textAlign: 'center', flex: 1 }}>
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={48}
+                  height={48}
+                  style={{ filter: 'brightness(0) saturate(100%) invert(33%) sepia(88%) saturate(3578%) hue-rotate(209deg) brightness(99%) contrast(101%)' }}
+                />
+                <Title
+                  order={4}
+                  size="h4"
+                  fw={600}
+                  lh={1.3}
+                  c="#0161DF"
+                >
+                  {card.title}
+                </Title>
+                <Text size="sm" lh={1.3} c="black" style={{ flex: 1 }}>
+                  {card.description}
+                </Text>
+              </Stack>
+            </Card>
+          ))}
+        </SimpleGrid>
+      </Box>
+    </Box>
   );
 }
+
