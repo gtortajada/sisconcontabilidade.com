@@ -40,7 +40,7 @@ export function Navbar() {
     <header className={classes.header}>
       <Container size="md" className={classes.inner}>
         <Image
-          src="/images/siscon-horizontal-azul.svg"
+          src="/images/siscon-horizontal-branco.svg"
           alt="Logo Siscon Contabilidade"
           className={classes.logo}
           width={200}
@@ -52,7 +52,7 @@ export function Navbar() {
           {items}
         </Group>
 
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" color="white"/>
       </Container>
 
       <Collapse in={opened}>

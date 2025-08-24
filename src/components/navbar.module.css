@@ -1,6 +1,5 @@
 .header {
-  background-color: var(--mantine-color-body);
-  border-bottom: rem(1px) solid var(--mantine-color-gray-3);
+  background-color: #0161DF;
   padding: var(--mantine-spacing-sm) 0;
 }
 
@@ -28,19 +27,21 @@
   padding: rem(8px) rem(12px);
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
-  color: var(--mantine-color-gray-7);
+  color: #FFFFFF;
   font-size: var(--mantine-font-size-sm);
   font-weight: 500;
   transition: background-color 150ms ease;
 }
 
 .link:hover {
-  background-color: var(--mantine-color-gray-0);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .link[data-active] {
-  background-color: var(--mantine-color-blue-light);
-  color: var(--mantine-color-blue-filled);
+  background-color: transparent;
+  color: #FFFFFF;
+  opacity: 1;
+  font-weight: 700;
 }
 
 .mobileLinks {
@@ -63,9 +64,8 @@
   .inner {
     justify-content: space-between;
   }
-  
+
   .logoContainer {
     flex: 1;
   }
 }
-
