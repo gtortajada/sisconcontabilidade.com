@@ -48,7 +48,7 @@ export default function AboutUs() {
           </Box>
 
           <Box style={{ position: "relative", zIndex: 1 }}>
-            <Box pt={rem(80)} pb={rem(80)}>
+            <Box pt={rem(80)} pb={rem(40)}>
               <Container size="xl">
                 <Flex direction="row" gap={rem(60)} align="flex-start">
                   <Box flex="1">
@@ -67,11 +67,10 @@ export default function AboutUs() {
                         fw={700}
                         mb="lg"
                         lh={1.2}
-                        ta="center"
                       >
                         Mais do que números, contamos histórias.
                       </Title>
-                      <Stack gap="md">
+                      <Stack gap="md" ta={{ base: "center", md: "left" }}>
                         <Text c="#333" fz={rem(16)} lh={1.6}>
                           Fundado em 1990, o Siscon Contabilidade é sinônimo de
                           tradição e modernidade oferecendo o melhor atendimento
@@ -149,7 +148,7 @@ export default function AboutUs() {
               </Container>
             </Box>
 
-            <Box pb={rem(120)}>
+            <Box pb={rem(20)}>
               <Container size="xl">
                 <Box
                   bg="white"
@@ -226,6 +225,7 @@ export default function AboutUs() {
                   <Box
                     bg="white"
                     p="xs"
+                    ta="center"
                     style={{
                       borderRadius: rem(3),
                       boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
@@ -238,7 +238,6 @@ export default function AboutUs() {
                       fw={700}
                       mb="lg"
                       lh={1.2}
-                      ta="center"
                     >
                       Mais do que números, contamos histórias.
                     </Title>
