@@ -94,7 +94,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             borderColor: "#0161DF",
           }}
         />
-        <Stack gap="xs" style={{ flex: 1 }}>
+        <Stack gap="xs" style={{ flex: 1 }} maw={220}>
           <Box>
             <Image
               src={icon}
@@ -141,10 +141,10 @@ const ServicesSection: React.FC = () => {
   return (
     <Box
       component="section"
+      pt={{ base: "60px", sm: "60px", md: "60px" }}
+      pb={{ base: "60px", sm: "70px", md: "80px" }}
       style={{
         backgroundColor: "white",
-        paddingTop: "40px",
-        paddingBottom: "40px",
       }}
     >
       <Container size="lg">
@@ -190,7 +190,7 @@ const ServicesSection: React.FC = () => {
                     width: "8px",
                     height: "8px",
                     border: "4px solid #0161DF",
-                    backgroundColor: "transparent",
+                    backgroundColor: "#0161DF",
                   },
                   indicators: {
                     gap: "8px",
@@ -202,7 +202,7 @@ const ServicesSection: React.FC = () => {
                 }}
               >
                 {servicesData.map((service, index) => (
-                  <Carousel.Slide key={index} style={{ padding: "10px 1px" }}>
+                  <Carousel.Slide key={index}>
                     <ServiceCard
                       icon={service.icon}
                       title={service.title}
@@ -213,15 +213,7 @@ const ServicesSection: React.FC = () => {
               </Carousel>
             </Box>
           ) : (
-            <SimpleGrid
-              cols={3}
-              spacing="xl"
-              verticalSpacing="xl"
-              w="100%"
-              style={{
-                maxWidth: "1000px",
-              }}
-            >
+            <SimpleGrid cols={3} spacing="xs" verticalSpacing="xs" w="90%">
               {servicesData.map((service, index) => (
                 <ServiceCard
                   key={index}
