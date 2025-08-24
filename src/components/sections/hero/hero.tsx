@@ -36,7 +36,6 @@ const cardData = [
 ];
 
 //TODO: Ajustar corretamente filtro azul em cima da foto de bg.
-//TODO: Tenho a impressão de que a section toda está muito curta. Mas pode ser que não, conferir depois.
 
 export default function Hero() {
   return (
@@ -54,7 +53,7 @@ export default function Hero() {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        h={{ base: "70vh", md: "65vh" }}
+        h={{ base: "70vh", md: "95vh" }}
         mih={{ base: "auto", md: "600px" }}
         mah={{ base: "auto", md: "1000px" }}
         pb={{ base: 0, md: rem(150) }}
@@ -101,7 +100,7 @@ export default function Hero() {
         bg="white"
         py={{ base: rem(32), sm: rem(-80) }}
         px="md"
-        mt={{ base: 0, md: rem(-150) }}
+        mt={{ base: 0,sm: rem(40), md: rem(-150) }}
       >
         <Stack gap="lg" align="center" hiddenFrom="md">
           {cardData.map((card) => (
