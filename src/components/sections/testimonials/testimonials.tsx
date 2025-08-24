@@ -42,7 +42,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <Box bg="#F2FEFF" py={{ base: "xl", md: 60 }}>
+    <Box bg="#F2FEFF" py={{ base: "xl"}}>
       <Container size="lg">
         <Stack align="center" gap="xl">
           <Title
@@ -61,17 +61,17 @@ export default function Testimonials() {
                 {testimonials.map((testimonial, index) => (
                   <Grid.Col key={index} span={6}>
                     <Stack
-                      p="xl"
+                      p="sm"
                       h="100%"
                       style={{
-                        border: "3px solid #228BE6",
+                        border: "4px solid #228BE6",
                         borderRadius: "8px",
                       }}
                       align="center"
                       ta="center"
                       gap="md"
                     >
-                      <Box w={40} h={28} style={{ alignSelf: "flex-start" }}>
+                      <Box w={40} h={1} style={{ alignSelf: "flex-start" }}>
                         <Image
                           src="/images/11-icon-aspas.svg"
                           alt="Ícone de aspas"
@@ -125,7 +125,7 @@ export default function Testimonials() {
             </Grid.Col>
           </Grid>
 
-          <Stack hiddenFrom="md" gap="xl" align="center">
+          <Stack hiddenFrom="md" gap="sm" align="center">
             {testimonials.slice(0, 3).map((testimonial, index) => (
               <Stack key={index} gap="md" align="center" w="100%">
                 <Box w={40} h={28}>
@@ -144,10 +144,10 @@ export default function Testimonials() {
                     {testimonial.role}
                   </Text>
                 </Stack>
-                <Text c="#021630" fz="sm" fw={400} ta="center" px="sm">
+                <Text c="#021630" fz="sm" fw={400} ta="center" px="sm" maw={{base: '100%', sm: '60%'}}>
                   {testimonial.quote}
                 </Text>
-                {index < testimonials.slice(0, 3).length - 1 && (
+                {index < testimonials.slice(0, 4).length - 1 && (
                   <Divider color="#0161DF" w="50%" />
                 )}
               </Stack>
@@ -157,6 +157,7 @@ export default function Testimonials() {
               w="100%"
               maw={320}
               style={{ borderRadius: "8px" }}
+              mt={"md"}
             >
               <video
                 poster="/images/video-poster.jpg"
