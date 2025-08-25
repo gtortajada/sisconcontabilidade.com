@@ -49,7 +49,7 @@ export function Footer() {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64440159.17531167!2d-99.76709813773608!3d-9.671198649557327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd12339842d99%3A0x642cdeb72591c526!2sSiscon%20Contabilidade%20e%20Assessoria!5e0!3m2!1sen!2sbr!4v1754339368176!5m2!1sen!2sbr"
             loading="lazy"
             height={250}
-          ></iframe> 
+          ></iframe>
           {/* //TODO: Ajustar aspect ratio. */}
         </Center>
         <Center mt="md" ta="center">
@@ -60,8 +60,8 @@ export function Footer() {
 
         {/* --- Layout para Desktop --- */}
         <Center visibleFrom="sm">
-          <Divider my="xl" color="#1f3a5d" />
-          <SimpleGrid cols={3} spacing="xl">
+          <Divider my="xl" color="#ecececff" />
+          <SimpleGrid cols={3} spacing="lg">
             <Stack>
               <Title order={4} c={colors.titles}>
                 Fale Conosco:
@@ -102,33 +102,21 @@ export function Footer() {
               <Text>8h às 11h30 e 13h às 18h</Text>
             </Stack>
 
-            <Stack>
+            <Stack gap="xs">
               <Anchor href="#" c={colors.links}>
                 Home{" "}
-                <Text span c="dimmed" size="sm">
-                  (ou voltar ao topo)
-                </Text>
               </Anchor>
               <Anchor href="#" c={colors.links}>
                 Serviços{" "}
-                <Text span c="dimmed" size="sm">
-                  (contabilidade p/ vc)
-                </Text>
               </Anchor>
               <Anchor href="#" c={colors.links}>
                 Sobre nós{" "}
-                <Text span c="dimmed" size="sm">
-                  (mais do que números)
-                </Text>
               </Anchor>
               <Anchor href="#" c={colors.links}>
                 Nossos Clientes{" "}
-                <Text span c="dimmed" size="sm">
-                  (empresas q confiam)
-                </Text>
               </Anchor>
               <Anchor href="#" c={colors.links}>
-                Dúvidas Frequentes ou FAQ
+                Dúvidas Frequentes
               </Anchor>
             </Stack>
           </SimpleGrid>
