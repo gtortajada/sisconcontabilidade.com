@@ -42,7 +42,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <Box bg="#F2FEFF" py={{ base: "xl"}}>
+    <Box bg="#F2FEFF" py={{ base: "xl"}} component="section" id="testimonials">
       <Container size="lg">
         <Stack align="center" gap="xl">
           <Title

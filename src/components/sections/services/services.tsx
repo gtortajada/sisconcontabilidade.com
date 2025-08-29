@@ -141,6 +141,7 @@ const ServicesSection: React.FC = () => {
   return (
     <Box
       component="section"
+      id="services"
       pt={{ base: "60px", sm: "60px", md: "60px" }}
       pb={{ base: "60px", sm: "70px", md: "80px" }}
       style={{

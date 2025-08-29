@@ -1,3 +1,5 @@
+"use client";
+
 import { CtaButton } from "@/components/ctaButton";
 import {
   Box,
@@ -35,30 +37,34 @@ const cardData = [
   },
 ];
 
-//TODO: Ajustar corretamente filtro azul em cima da foto de bg.
-
 export default function Hero() {
   return (
-    <Box>
+    <Box component="section" id="home">
       <Box
-        style={{
+        style={(theme) => ({
           position: "relative",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
           color: "white",
-          backgroundImage: "url(/images/home/bg-header.webp)",
+          backgroundImage:
+            "linear-gradient(rgba(2, 22, 48, 0.45), rgba(2, 22, 48, 0.45)), url(/images/home/bg-header.webp)",
           backgroundSize: "cover",
-          backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-        }}
-        h={{ base: "70vh", md: "95vh" }}
+          backgroundAttachment: "fixed",
+          backgroundPosition: "center 100%",
+
+          [`@media (min-width: ${theme.breakpoints.md})`]: {
+            backgroundPosition: "center bottom",
+          },
+        })}
+        h={{ base: "90vh", md: "95vh" }}
         mih={{ base: "auto", md: "600px" }}
         mah={{ base: "auto", md: "1000px" }}
         pb={{ base: 0, md: rem(150) }}
       >
-        <Stack align="center" style={{ zIndex: 1 }} p="sm" gap="x">
+        <Stack align="center" style={{ zIndex: 1 }} p="sm" gap="xs">
           <Title
             order={1}
             px={{ base: "xl", sm: "0" }}
@@ -67,7 +73,7 @@ export default function Hero() {
             lts={-1}
             lh={1}
             mb="sm"
-            maw={{ base: "100%", sm:"60%" }}
+            maw={{ base: "100%", sm: "70%" }}
           >
             Há mais de 35 anos facilitando a rotina do empresário brasileiro.
           </Title>
@@ -76,31 +82,20 @@ export default function Hero() {
             fz={{ base: rem(24), sm: rem(28) }}
             lh={1.1}
             mb="xl"
-            maw={{ base: "80%", sm: "40%" }}
+            maw={{ base: "80%", sm: "60%" }}
           >
             Mais de 400 empresas confiam no Siscon Contabilidade para crescer
             com segurança, economia e tranquilidade fiscal.
           </Text>
           <CtaButton>Fale com nossos especialistas</CtaButton>
         </Stack>
-        <Box
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: "rgba(0, 47, 147, 0.46)",
-            zIndex: 0,
-          }}
-        />
       </Box>
 
       <Box
         bg="white"
         py={{ base: rem(32), sm: rem(-80) }}
         px="md"
-        mt={{ base: 0,sm: rem(40), md: rem(-150) }}
+        mt={{ base: 0, sm: rem(40), md: rem(-150) }}
       >
         <Stack gap="lg" align="center" hiddenFrom="md">
           {cardData.map((card) => (

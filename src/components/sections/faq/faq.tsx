@@ -54,9 +54,13 @@ export default function FAQ() {
       <Accordion.Panel>{item.description}</Accordion.Panel>
     </Accordion.Item>
   ));
- // TODO: Deixar o primeiro item do accordion aberto por padrão
   return (
-    <Box bg="#e3edfb" py={{ base: rem(20), sm: rem(20) }}>
+    <Box
+      bg="#e3edfb"
+      py={{ base: rem(20), sm: rem(20) }}
+      component="section"
+      id="faq"
+    >
       <Container size="sm">
         <Title
           ta="center"
@@ -68,6 +72,7 @@ export default function FAQ() {
         </Title>
 
         <Accordion
+        defaultValue={data[0].value}
           variant="separated"
           radius="md"
           mt={{ base: rem(30), sm: rem(30) }}
@@ -75,10 +80,10 @@ export default function FAQ() {
             item: {
               backgroundColor: "#fff",
               border: "none",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
             },
             control: {
-              padding: rem(5),
+              paddingLeft: rem(15),
             },
             label: {
               color: "#0161DF",
@@ -86,7 +91,6 @@ export default function FAQ() {
               fontSize: rem(17),
             },
             panel: {
-              padding: rem(20),
               paddingTop: 0,
               fontSize: rem(15),
               color: "#495057",
