@@ -1,4 +1,3 @@
-// src/components/Footer/Footer.tsx
 "use client";
 
 import {
@@ -25,179 +24,196 @@ export function Footer() {
     copyrightBg: "#005bb5",
     text: "#FFFFFF",
     links: "#FFFFFF",
+    divider: "#005bb5",
   };
+
+  const links = [
+    { link: "#home", label: "Home" },
+    { link: "#services", label: "Serviços" },
+    { link: "#aboutUs", label: "Sobre nós" },
+    { link: "#testimonials", label: "Depoimentos" },
+    { link: "#faq", label: "Perguntas frequentes" },
+  ];
+
+  const handleLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    link: string
+  ) => {
+    if (link.startsWith("#")) {
+      event.preventDefault();
+      const targetElement = document.querySelector(link);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const siteMapItems = links.map((link) => (
+    <Anchor
+      key={link.label}
+      href={link.link}
+      c={colors.links}
+      onClick={(event) => handleLinkClick(event, link.link)}
+    >
+      {link.label}
+    </Anchor>
+  ));
 
   return (
     <Box component="footer" bg={colors.footerBg} c={colors.text}>
-      <Container size="lg" py="xl">
-        <AspectRatio
-          ratio={540 / 116}
-          maw={480}
-          mx="auto"
-          style={{ position: "relative" }}
+      <Container size="sm" py="xs">
+        <Group
+          justify="center"
+          align="center"
+          gap="xs"
+          
+          style={(theme) => ({
+            [`@media (max-width: ${theme.breakpoints.md})`]: {
+              flexDirection: "column",
+              gap: theme.spacing.xl,
+            },
+          })}
         >
-          <Image
-            src="images/siscon-horizontal-branco.svg"
-            alt="Logo Siscon Contabilidade"
-            fill
-          />
-          <div></div>
-        </AspectRatio>
-
-        <Center mt="xl">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d64440159.17531167!2d-99.76709813773608!3d-9.671198649557327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd12339842d99%3A0x642cdeb72591c526!2sSiscon%20Contabilidade%20e%20Assessoria!5e0!3m2!1sen!2sbr!4v1754339368176!5m2!1sen!2sbr"
-            loading="lazy"
-            height={250}
-          ></iframe>
-          {/* //TODO: Ajustar aspect ratio. */}
-        </Center>
-        <Center mt="md" ta="center">
-          <Text>
-            Avenida Dr. Alexandre Rasgulaeff, 752. Jardim Alvorada, Maringá.
-          </Text>
-        </Center>
-
-        {/* --- Layout para Desktop --- */}
-        <Center visibleFrom="sm">
-          <Divider my="xl" color="#ecececff" />
-          <SimpleGrid cols={3} spacing="lg">
-            <Stack>
-              <Title order={4} c={colors.titles}>
-                Fale Conosco:
-              </Title>
-              <Group gap="xs">
-                {/* PLACEHOLDER: Substitua pelo seu ícone se necessário */}
-                <ActionIcon variant="transparent" c={colors.links}>
-                  <IconPhone size={18} />
-                </ActionIcon>
-                <Anchor
-                  href="tel:+554430266080"
-                  c={colors.links}
-                  style={{ textDecoration: "none" }}
-                >
-                  (44) 3026-6080
-                </Anchor>
-              </Group>
-              <Group gap="xs">
-                {/* PLACEHOLDER: Substitua pelo seu ícone se necessário */}
-                <ActionIcon variant="transparent" c={colors.links}>
-                  <IconBrandInstagram size={18} />
-                </ActionIcon>
-                <Anchor
-                  href="#"
-                  c={colors.links}
-                  style={{ textDecoration: "none" }}
-                >
-                  @siscon_contabilidade
-                </Anchor>
-              </Group>
-            </Stack>
-
-            <Stack>
-              <Title order={4} c={colors.titles}>
-                Horário de funcionamento:
-              </Title>
-              <Text>Segunda à sexta-feira</Text>
-              <Text>8h às 11h30 e 13h às 18h</Text>
-            </Stack>
-
-            <Stack gap="xs">
-              <Anchor href="#" c={colors.links}>
-                Home{" "}
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Serviços{" "}
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Sobre nós{" "}
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Nossos Clientes{" "}
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Dúvidas Frequentes
-              </Anchor>
-            </Stack>
-          </SimpleGrid>
-        </Center>
-
-        {/* --- Layout para Mobile --- */}
-        <Center hiddenFrom="sm">
-          <Stack align="center" gap="lg" my="xl">
-            <Divider w="80%" color="#1f3a5d" />
-            <Stack align="center" gap={0}>
-              <Title order={4} c={colors.titles}>
-                Horário de atendimento:
-              </Title>
-              <Text>Segunda à sexta-feira</Text>
-              <Text>8h às 11h30 e 13h às 18h</Text>
-            </Stack>
-
-            <Divider w="60%" color="#1f3a5d" />
-            <Stack align="center" gap="sm">
-              <Title order={4} c={colors.titles}>
-                Fale Conosco:
-              </Title>
-              <Group gap="xs">
-                {/* PLACEHOLDER: Substitua pelo seu ícone se necessário */}
-                <ActionIcon variant="transparent" c={colors.links}>
-                  <IconPhone size={16} />
-                </ActionIcon>
-                <Anchor
-                  href="tel:+554430266080"
-                  c={colors.links}
-                  style={{ textDecoration: "none" }}
-                >
-                  (44) 3026-6080
-                </Anchor>
-              </Group>
-              <Group gap="xs">
-                {/* PLACEHOLDER: Substitua pelo seu ícone se necessário */}
-                <ActionIcon variant="transparent" c={colors.links}>
-                  <IconBrandInstagram size={16} />
-                </ActionIcon>
-                <Anchor
-                  href="#"
-                  c={colors.links}
-                  style={{ textDecoration: "none" }}
-                >
-                  @siscon_contabilidade
-                </Anchor>
-              </Group>
-            </Stack>
-
-            <Divider w="40%" color="#1f3a5d" />
-            <Stack align="center" gap="sm">
-              <Anchor href="#" c={colors.links}>
-                Home
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Serviços
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Sobre nós
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Nossos Clientes
-              </Anchor>
-              <Anchor href="#" c={colors.links}>
-                Dúvidas Frequentes
-              </Anchor>
-            </Stack>
+          <Box
+            w={{ base: "70%", md: 300 }}
+            h={60}
+            style={{ position: "relative" }}
+          >
+            <Image
+              src="/images/siscon-horizontal-branco.svg"
+              alt="Logo Siscon Contabilidade"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+                objectPosition: "center",
+              }}
+              sizes="70vw"
+            />
+          </Box>
+          <Stack
+            align="center"
+            gap="xs"
+            style={(theme) => ({
+              textAlign: "center",
+              [`@media (min-width: ${theme.breakpoints.md})`]: {
+                alignItems: "flex-end",
+                textAlign: "left",
+              },
+            })}
+          >
+            <Box w={{ base: "70%", md: 400 }}>
+              <AspectRatio ratio={16 / 9}>
+                <iframe
+                  src="https://maps.google.com/maps?q=Avenida%20Dr.%20Alexandre%20Rasgulaeff%2C%20752%2C%20Jardim%20Alvorada%2C%20Maring%C3%A1&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  style={{ border: 0 }}
+                  title="Localização da Siscon Contabilidade no Google Maps"
+                />
+              </AspectRatio>
+            </Box>
+            <Text ta="center" fz="sm">
+              Avenida Dr. Alexandre Rasgulaeff, 752. Jardim Alvorada, Maringá.
+            </Text>
           </Stack>
+        </Group>
+
+        <Center>
+          <Divider
+            my="xs"
+            color={colors.divider}
+            w={{ base: "80%", md: "100%" }}
+          />
         </Center>
+
+        <SimpleGrid
+          cols={{ base: 1, md: 3 }}
+          spacing={{ base: "xl", md: "lg" }}
+          verticalSpacing="xs"
+        >
+          <Stack
+            gap={1}
+            align="center"
+            style={(theme) => ({
+              textAlign: "center",
+              [`@media (min-width: ${theme.breakpoints.md})`]: {
+                alignItems: "flex-start",
+                justifyContent: "center",
+                height: "100%",
+                textAlign: "left",
+              },
+            })}
+          >
+            <Title order={4} c={colors.titles}>
+              Fale Conosco:
+            </Title>
+            <Group gap={1}>
+              <ActionIcon variant="transparent" c={colors.links}>
+                <IconPhone size={20} />
+              </ActionIcon>
+              <Anchor href="tel:+554430266080" c={colors.links}>
+                (44) 3026-6080
+              </Anchor>
+            </Group>
+            <Group gap={1}>
+              <ActionIcon variant="transparent" c={colors.links}>
+                <IconBrandInstagram size={20} />
+              </ActionIcon>
+              <Anchor
+                href="https://www.instagram.com/siscon_contabilidade/"
+                target="_blank"
+                rel="noopener noreferrer"
+                c={colors.links}
+              >
+                @siscon_contabilidade
+              </Anchor>
+            </Group>
+          </Stack>
+
+          <Divider color={colors.divider} hiddenFrom="md" w="60%" mx="auto" />
+
+          <Stack
+            gap={1}
+            align="center"
+            style={(theme) => ({
+              textAlign: "center",
+              [`@media (min-width: ${theme.breakpoints.md})`]: {
+                justifyContent: "center",
+                height: "100%",
+              },
+            })}
+          >
+            <Title order={4} c={colors.titles}>
+              Horário de funcionamento:
+            </Title>
+            <Text>Segunda à sexta-feira</Text>
+            <Text>8h às 11h30 e 13h às 18h</Text>
+          </Stack>
+
+          <Divider color={colors.divider} hiddenFrom="md" w="40%" mx="auto" />
+
+          <Stack
+            gap={1}
+            align="center"
+            style={(theme) => ({
+              textAlign: "center",
+              [`@media (min-width: ${theme.breakpoints.md})`]: {
+                alignItems: "flex-start",
+                textAlign: "left",
+              },
+            })}
+          >
+            {siteMapItems}
+          </Stack>
+        </SimpleGrid>
       </Container>
 
-      <Box bg={colors.copyrightBg} c={colors.text} py="md">
+      <Box bg={colors.copyrightBg} c={colors.text} py="sm">
         <Container size="lg">
           <Stack align="center" gap={5}>
             <Text size="sm" ta="center">
               Copyrights © 2025. Todos os direitos reservados Siscon
               Contabilidade
-            </Text>
-            <Text size="xs" ta="center">
-              Desenvolvido por Tortajado.
             </Text>
           </Stack>
         </Container>
