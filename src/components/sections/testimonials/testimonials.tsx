@@ -15,26 +15,26 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Ana Silva",
-    role: "Diretor, Incoparts ",
+    name: "Gustavo Sartori",
+    role: "Desenvolvedor de Software",
     quote:
-      "Estamos muito felizes com o comprometimento e disponibilidade de toda equipe. Super recomendamos o escritório e os serviços prestados. Parabéns a todos os envolvidos pela qualidade e principalmente pelo atendimento diferenciado!",
+      "Trabalho com serviços para o exterior e o escritório me ajudou desde a criação do CNPJ até escolher qual é o melhor enquadramento para reduzir os impostos pagos. Hoje tenho muito mais tranquilidade porque sei que tenho o Siscon como parceiros estratégicos da minha empresa.",
   },
   {
-    name: "Carlos Oliveira",
-    role: "Proprietário, Lojas Alvorada",
+    name: "Heloisa Rotta",
+    role: "Copywriter Estratégica",
     quote:
-      "Profissionalismo e excelente atendimento, procurava atendimento na área tributária e o Claudemir mostrou capacitação e experiência, excelente mesmo, Claudemir e a equipe estão de parabéns ",
+      "Ótimo atendimento. Estou com eles há mais de 3 anos e me ajudaram em todo o processo de abertura da empresa. Também cuidam da holding que tenho com minha família, administrando todos os nossos bens.",
   },
   {
-    name: "Juliana Pereira",
-    role: "Gerente, Águia Lubrificantes",
+    name: "Gustavo Tortajada",
+    role: "Administrador, Salgaderia Maringá",
     quote:
       "Excelente escritório, profissionais qualificados, atendimento humanizado e sempre atenciosos. Indico de olho fechado, parabéns à equipe pelo trabalho.",
   },
   {
-    name: "Rafael Souza",
-    role: "Proprietário, QLB",
+    name: "Vitor Souza",
+    role: "Designer Autonomo",
     quote:
       "Todos os profissionais são muito atenciosos e rápidos. Empresa séria, transparente e que deixa o cliente totalmente tranquilo com sua contabilidade.",
   },
