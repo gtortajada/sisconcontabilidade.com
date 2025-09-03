@@ -69,19 +69,27 @@ export function Navbar() {
     borderTop: `${rem(1)} solid rgba(255, 255, 255, 0.2)`,
   };
 
-  const items = links.map((link) => {
-    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-      if (link.target.startsWith("#")) {
-        event.preventDefault();
-        const targetElement = document.querySelector(link.target);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
+  const scrollToTarget = (target: string, event?: React.MouseEvent) => {
+    event?.preventDefault();
+
+    if (target.startsWith("#")) {
+      const targetElement = document.querySelector(target);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
-      setActive(link.target);
-      close();
+    }
+    updateNavbarActiveLink(target);
+  };
+
+  const updateNavbarActiveLink = (target: string) => {
+    setActive(target);
+    close();
+  };
+
+  const navbarLinks = links.map((link) => {
+    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+      scrollToTarget(link.target, event);
+      updateNavbarActiveLink(link.target);
     };
 
     return (
@@ -105,9 +113,11 @@ export function Navbar() {
           width={150}
           height={40}
           priority
+          onClick={() => scrollToTarget("#home")}
+          style={{cursor:"pointer"}}
         />
         <Group gap={5} visibleFrom="sm">
-          {items}
+          {navbarLinks}
         </Group>
         <Burger
           opened={opened}
@@ -120,7 +130,7 @@ export function Navbar() {
       <Collapse in={opened}>
         <Box style={collapseContainerStyles}>
           <Container size="md" py="sm">
-            {items}
+            {navbarLinks}
           </Container>
         </Box>
       </Collapse>
