@@ -59,8 +59,7 @@ export default function Hero() {
             backgroundPosition: "center bottom",
           },
         })}
-        h={{ base: "90vh", md: "95vh" }}
-        mih={{ base: "auto", md: "600px" }}
+        mih={{ base: "100vh", md: "768px",}}
         mah={{ base: "auto", md: "1000px" }}
         pb={{ base: 0, md: rem(150) }}
       >
