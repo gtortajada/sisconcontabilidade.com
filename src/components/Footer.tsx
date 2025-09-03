@@ -67,7 +67,7 @@ export function Footer() {
           align="center"
           gap="xs"
           style={(theme) => ({
-            [`@media (max-width: ${theme.breakpoints.md})`]: {
+            [`@media (maxWidth: ${theme.breakpoints.md})`]: {
               flexDirection: "column",
               gap: theme.spacing.xl,
             },
