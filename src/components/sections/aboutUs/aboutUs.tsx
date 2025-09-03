@@ -25,13 +25,13 @@ const aboutUsContent = {
   sisconHistoryCard: {
     title: "Mais do que números, contamos histórias.",
     highlights: [
-      <Text c="#333" fz={rem(14)} lh={1.6}>
+      <Text key="p1" c="#333" fz={rem(14)} lh={1.6}>
         {" "}
         Fundado em 1990, o Siscon Contabilidade é sinônimo de tradição e
         modernidade oferecendo o melhor atendimento contábil às empresas de todo
         o Brasil.
       </Text>,
-      <Text c="#333" fz={rem(14)} lh={1.6}>
+      <Text key="p2" c="#333" fz={rem(14)} lh={1.6}>
         Com sede própria em Maringá-PR, hoje contamos com{" "}
         <Text component="span" fw={700}>
           mais de 30 colaboradores
@@ -39,14 +39,14 @@ const aboutUsContent = {
         altamente qualificados e em constante atualização, trabalhando todos os
         dias para facilitar a sua rotina empresarial.
       </Text>,
-      <Text c="#333" fz={rem(14)} lh={1.6}>
+      <Text key="p3" c="#333" fz={rem(14)} lh={1.6}>
         <Text component="span" fw={700}>
           Milhares de empresas já passaram por aqui, algumas estão conosco desde
           nossa fundação
         </Text>{" "}
         e, com muito orgulho, contribuímos para o crescimento de cada uma delas.
       </Text>,
-      <Text c="#333" fz={rem(14)} lh={1.6} fw={700}>
+      <Text key="p4" c="#333" fz={rem(14)} lh={1.6} fw={700}>
         Nossa missão é facilitar a gestão empresarial, criando uma relação de
         confiança com quem sabe o que é empreender no Brasil.
       </Text>,
