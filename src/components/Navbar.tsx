@@ -12,7 +12,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 
 const links = [
   { link: "#home", label: "Home" },
@@ -26,16 +26,16 @@ export function Navbar() {
   const [opened, { toggle, close }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
 
-  const headerStyles = {
+  const headerStyles: CSSProperties = {
     backgroundColor: "#0161DF",
-    position: "fixed" as const,
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
     zIndex: 100,
   };
 
-  const innerStyles = {
+  const innerStyles: CSSProperties = {
     height: rem(56),
     display: "flex",
     justifyContent: "space-between",
@@ -60,8 +60,8 @@ export function Navbar() {
     }),
   });
 
-  const collapseContainerStyles = {
-    position: "absolute" as const,
+  const collapseContainerStyles: CSSProperties = {
+    position: "absolute",
     top: rem(56),
     left: 0,
     right: 0,
