@@ -6,7 +6,7 @@ import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-const logos = [
+const clientLogos = [
   { name: "NAC", src: "/images/logoClientes/nac.png" },
   { name: "Águia", src: "/images/logoClientes/aguia.png" },
   { name: "Rolldor", src: "/images/logoClientes/rolldoor.png" },
@@ -17,7 +17,6 @@ const logos = [
   { name: "Akon", src: "/images/logoClientes/akon.png" },
 ];
 
-const logosForMarquee = [...logos, ...logos, ...logos, ...logos];
 const aboutUsContent = {
   claudemirProfile: {
     name: "Claudemir Matiusso",
@@ -60,7 +59,7 @@ export default function AboutUs() {
   return (
     <>
       <Box component="section" id="aboutUs">
-        <Box visibleFrom="md" id="desktopView">
+        <Box visibleFrom="md" id="mainContentDesktop">
           <Box bg="#F2FEFF" pb={rem(120)}>
             <Box
               style={{
@@ -196,7 +195,7 @@ export default function AboutUs() {
                     wrap="nowrap"
                     gap={rem(20)}
                   >
-                    {logos.map((logo) => (
+                    {clientLogos.map((logo) => (
                       <Box key={logo.name} w={rem(110)} h={rem(70)}>
                         <Image
                           src={logo.src}
@@ -219,7 +218,7 @@ export default function AboutUs() {
           </Box>
         </Box>
 
-        <Box hiddenFrom="md" id="mobileView">
+        <Box hiddenFrom="md" id="mainContentMobilePlusInfiniteScrollBanner">
           <Box
             id="parallaxContainer"
             style={{
@@ -242,7 +241,8 @@ export default function AboutUs() {
                 zIndex: 1,
               }}
             />
-            <Box style={{ position: "relative", zIndex: 2 }}>
+
+            <Box id="paralaxContent" style={{ position: "relative", zIndex: 2 }}>
               <Box py="xl">
                 <Container size="xl">
                   <Flex direction="column-reverse" gap="xl" align="center">
@@ -351,7 +351,7 @@ export default function AboutUs() {
               </Title>
               <Box py="xs">
                 <Marquee speed={40}>
-                  {logosForMarquee.map((logo, index) => (
+                  {clientLogos.map((logo, index) => (
                     <Image
                       key={index}
                       src={logo.src}
