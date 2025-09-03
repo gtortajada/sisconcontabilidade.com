@@ -66,7 +66,6 @@ export function Footer() {
           justify="center"
           align="center"
           gap="xs"
-          
           style={(theme) => ({
             [`@media (max-width: ${theme.breakpoints.md})`]: {
               flexDirection: "column",
@@ -96,7 +95,7 @@ export function Footer() {
             gap="xs"
             style={(theme) => ({
               textAlign: "center",
-              [`@media (min-width: ${theme.breakpoints.md})`]: {
+              [`@media (minWidth: ${theme.breakpoints.md})`]: {
                 alignItems: "flex-end",
                 textAlign: "left",
               },
@@ -136,7 +135,7 @@ export function Footer() {
             align="center"
             style={(theme) => ({
               textAlign: "center",
-              [`@media (min-width: ${theme.breakpoints.md})`]: {
+              [`@media (minWidth: ${theme.breakpoints.md})`]: {
                 alignItems: "flex-start",
                 justifyContent: "center",
                 height: "100%",
@@ -177,7 +176,7 @@ export function Footer() {
             align="center"
             style={(theme) => ({
               textAlign: "center",
-              [`@media (min-width: ${theme.breakpoints.md})`]: {
+              [`@media (minWidth: ${theme.breakpoints.md})`]: {
                 justifyContent: "center",
                 height: "100%",
               },
@@ -197,7 +196,7 @@ export function Footer() {
             align="center"
             style={(theme) => ({
               textAlign: "center",
-              [`@media (min-width: ${theme.breakpoints.md})`]: {
+              [`@media (minWidth: ${theme.breakpoints.md})`]: {
                 alignItems: "flex-start",
                 textAlign: "left",
               },

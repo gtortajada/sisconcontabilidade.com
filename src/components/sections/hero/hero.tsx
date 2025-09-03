@@ -55,7 +55,7 @@ export default function Hero() {
           backgroundAttachment: "fixed",
           backgroundPosition: "center 100%",
 
-          [`@media (min-width: ${theme.breakpoints.md})`]: {
+          [`@media (minWidth: ${theme.breakpoints.md})`]: {
             backgroundPosition: "center bottom",
           },
         })}
