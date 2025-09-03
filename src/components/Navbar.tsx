@@ -15,16 +15,16 @@ import Image from "next/image";
 import { CSSProperties, useState } from "react";
 
 const links = [
-  { link: "#home", label: "Home" },
-  { link: "#services", label: "Serviços" },
-  { link: "#aboutUs", label: "Sobre nós" },
-  { link: "#testimonials", label: "Depoimentos" },
-  { link: "#faq", label: "Perguntas frequentes" },
+  { target: "#home", label: "Home" },
+  { target: "#services", label: "Serviços" },
+  { target: "#aboutUs", label: "Sobre nós" },
+  { target: "#testimonials", label: "Depoimentos" },
+  { target: "#faq", label: "Perguntas frequentes" },
 ];
 
 export function Navbar() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState(links[0].target);
 
   const headerStyles: CSSProperties = {
     backgroundColor: "#0161DF",
@@ -71,24 +71,24 @@ export function Navbar() {
 
   const items = links.map((link) => {
     const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-      if (link.link.startsWith("#")) {
+      if (link.target.startsWith("#")) {
         event.preventDefault();
-        const targetElement = document.querySelector(link.link);
+        const targetElement = document.querySelector(link.target);
         if (targetElement) {
           targetElement.scrollIntoView({
             behavior: "smooth",
           });
         }
       }
-      setActive(link.link);
+      setActive(link.target);
       close();
     };
 
     return (
       <Anchor
         key={link.label}
-        href={link.link}
-        style={(theme) => linkStyles(theme, active === link.link)}
+        href={link.target}
+        style={(theme) => linkStyles(theme, active === link.target)}
         onClick={handleLinkClick}
       >
         {link.label}
