@@ -74,6 +74,7 @@ export function Footer() {
           })}
         >
           <Box
+            my="sm"
             w={{ base: "70%", md: 300 }}
             h={60}
             style={{ position: "relative" }}
