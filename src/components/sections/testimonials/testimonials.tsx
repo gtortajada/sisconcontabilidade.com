@@ -181,7 +181,7 @@ export default function Testimonials() {
             </AspectRatio>
           </Stack>
 
-          <CtaButton>Fale com nossos especialistas agora</CtaButton>
+          <CtaButton>Fale com nossos especialistas</CtaButton>
         </Stack>
       </Container>
     </Box>
