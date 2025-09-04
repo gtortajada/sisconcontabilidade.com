@@ -1,5 +1,6 @@
 "use client";
 
+import { scrollToSection, sections } from "@/config/sections";
 import {
   Anchor,
   Box,
@@ -14,14 +15,6 @@ import { useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
 import { CSSProperties } from "react";
 import { useActiveSection } from "./ActiveSectionContext";
-
-const links = [
-  { target: "#home", label: "Home" },
-  { target: "#services", label: "Serviços" },
-  { target: "#aboutUs", label: "Sobre nós" },
-  { target: "#testimonials", label: "Depoimentos" },
-  { target: "#faq", label: "Perguntas frequentes" },
-];
 
 export function Navbar() {
   const [opened, { toggle, close }] = useDisclosure(false);
@@ -70,31 +63,21 @@ export function Navbar() {
     borderTop: `${rem(1)} solid rgba(255, 255, 255, 0.2)`,
   };
 
-  const scrollToTarget = (target: string, event?: React.MouseEvent) => {
-    event?.preventDefault();
-
-    if (target.startsWith("#")) {
-      const targetElement = document.querySelector(target);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-    close();
-  };
-
-  const navbarLinks = links.map((link) => {
+  const navbarLinks = sections.map((section) => {
     const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-      scrollToTarget(link.target, event);
+      event?.preventDefault();
+      scrollToSection(section.id);
+      close();
     };
 
     return (
       <Anchor
-        key={link.label}
-        href={link.target}
-        style={(theme) => linkStyles(theme, activeSection === link.target)}
+        key={section.label}
+        href={"#" + section.id}
+        style={(theme) => linkStyles(theme, activeSection === section.id)}
         onClick={handleLinkClick}
       >
-        {link.label}
+        {section.label}
       </Anchor>
     );
   });
@@ -108,7 +91,7 @@ export function Navbar() {
           width={150}
           height={40}
           priority
-          onClick={() => scrollToTarget("#home")}
+          onClick={() => scrollToSection("home")}
           style={{ cursor: "pointer" }}
         />
         <Group gap={5} visibleFrom="sm">

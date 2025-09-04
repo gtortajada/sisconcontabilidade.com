@@ -8,13 +8,12 @@ import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 import { ActiveSectionProvider } from "@/components/ActiveSectionContext";
 import { SectionObserver } from "@/components/SectionObserver";
+import { sections } from "@/config/sections";
 
 export const metadata = {
   title: "Siscon Contabilidade",
   description: "Contabilidade para impulsionar o seu negócio",
 };
-
-const sectionIds = ["home", "services", "aboutUs", "testimonials", "faq"];
 
 export default function RootLayout({
   children,
@@ -30,7 +29,7 @@ export default function RootLayout({
         <MantineProvider theme={theme}>
           <ActiveSectionProvider>
             <Navbar />
-            <SectionObserver sectionIds={sectionIds} />
+            <SectionObserver sectionIds={sections.map((s) => s.id)} />
             {children}
             <Footer />
           </ActiveSectionProvider>

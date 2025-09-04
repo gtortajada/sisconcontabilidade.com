@@ -16,6 +16,7 @@ import {
 } from "@mantine/core";
 import { IconBrandInstagram, IconPhone } from "@tabler/icons-react";
 import Image from "next/image";
+import { scrollToSection, SectionId, sections } from "@/config/sections";
 
 export function Footer() {
   const colors = {
@@ -27,35 +28,22 @@ export function Footer() {
     divider: "#005bb5",
   };
 
-  const links = [
-    { link: "#home", label: "Home" },
-    { link: "#services", label: "Serviços" },
-    { link: "#aboutUs", label: "Sobre nós" },
-    { link: "#testimonials", label: "Depoimentos" },
-    { link: "#faq", label: "Perguntas frequentes" },
-  ];
-
   const handleLinkClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
-    link: string
+    sectionId: SectionId
   ) => {
-    if (link.startsWith("#")) {
-      event.preventDefault();
-      const targetElement = document.querySelector(link);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    event.preventDefault();
+    scrollToSection(sectionId)
   };
 
-  const siteMapItems = links.map((link) => (
+  const siteMapItems = sections.map((section) => (
     <Anchor
-      key={link.label}
-      href={link.link}
+      key={section.label}
+      href={"#" + section.id}
       c={colors.links}
-      onClick={(event) => handleLinkClick(event, link.link)}
+      onClick={(event) => handleLinkClick(event, section.id)}
     >
-      {link.label}
+      {section.label}
     </Anchor>
   ));
 
