@@ -1,6 +1,6 @@
 "use client";
 
-import { Accordion, Box, Container, Title, rem } from "@mantine/core";
+import { Accordion, Container, Title, rem } from "@mantine/core";
 import { Section } from "../Section";
 
 const data = [
@@ -56,10 +56,7 @@ export default function FAQ() {
     </Accordion.Item>
   ));
   return (
-    <Section
-      bg="#e3edfb"
-      id="faq"
-    >
+    <Section bg="#e3edfb" id="faq">
       <Container size="sm">
         <Title
           ta="center"
@@ -71,7 +68,7 @@ export default function FAQ() {
         </Title>
 
         <Accordion
-        defaultValue={data[0].value}
+          defaultValue={data[0].value}
           variant="separated"
           radius="md"
           mt={{ base: rem(30), sm: rem(30) }}
