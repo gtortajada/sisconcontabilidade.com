@@ -7,12 +7,13 @@ import {
   Collapse,
   Container,
   Group,
-  rem,
   MantineTheme,
+  rem,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
+import { useActiveSection } from "./ActiveSectionContext";
 
 const links = [
   { target: "#home", label: "Home" },
@@ -24,7 +25,7 @@ const links = [
 
 export function Navbar() {
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].target);
+  const { activeSection } = useActiveSection();
 
   const headerStyles: CSSProperties = {
     backgroundColor: "#0161DF",
@@ -78,25 +79,19 @@ export function Navbar() {
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
     }
-    updateNavbarActiveLink(target);
-  };
-
-  const updateNavbarActiveLink = (target: string) => {
-    setActive(target);
     close();
   };
 
   const navbarLinks = links.map((link) => {
     const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
       scrollToTarget(link.target, event);
-      updateNavbarActiveLink(link.target);
     };
 
     return (
       <Anchor
         key={link.label}
         href={link.target}
-        style={(theme) => linkStyles(theme, active === link.target)}
+        style={(theme) => linkStyles(theme, activeSection === link.target)}
         onClick={handleLinkClick}
       >
         {link.label}
@@ -114,7 +109,7 @@ export function Navbar() {
           height={40}
           priority
           onClick={() => scrollToTarget("#home")}
-          style={{cursor:"pointer"}}
+          style={{ cursor: "pointer" }}
         />
         <Group gap={5} visibleFrom="sm">
           {navbarLinks}
