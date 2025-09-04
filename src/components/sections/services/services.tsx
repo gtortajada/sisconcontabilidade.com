@@ -203,7 +203,7 @@ const ServicesSection: React.FC = () => {
                 }}
               >
                 {servicesData.map((service, index) => (
-                  <Carousel.Slide key={index}>
+                  <Carousel.Slide key={index} mb={10}>
                     <ServiceCard
                       icon={service.icon}
                       title={service.title}
