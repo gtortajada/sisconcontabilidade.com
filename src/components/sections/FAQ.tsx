@@ -1,6 +1,7 @@
 "use client";
 
 import { Accordion, Box, Container, Title, rem } from "@mantine/core";
+import { Section } from "../Section";
 
 const data = [
   {
@@ -55,10 +56,8 @@ export default function FAQ() {
     </Accordion.Item>
   ));
   return (
-    <Box
+    <Section
       bg="#e3edfb"
-      py={{ base: rem(20), sm: rem(20) }}
-      component="section"
       id="faq"
     >
       <Container size="sm">
@@ -100,6 +99,6 @@ export default function FAQ() {
           {items}
         </Accordion>
       </Container>
-    </Box>
+    </Section>
   );
 }

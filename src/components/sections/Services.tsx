@@ -19,7 +19,8 @@ import { useMediaQuery } from "@mantine/hooks";
 import Autoplay from "embla-carousel-autoplay";
 import React, { useRef } from "react";
 
-import { CtaButton } from "@/components/ctaButton";
+import { CtaButton } from "@/components/CtaButton";
+import { Section } from "../Section";
 
 const servicesData = [
   {
@@ -139,14 +140,9 @@ const ServicesSection: React.FC = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const autoplay = useRef(Autoplay({ delay: 5000, stopOnInteraction: false }));
   return (
-    <Box
-      component="section"
+    <Section
       id="services"
-      pt={{ base: "60px", sm: "60px", md: "60px" }}
-      pb={{ base: "60px", sm: "70px", md: "80px" }}
-      style={{
-        backgroundColor: "white",
-      }}
+      bg="#ffffff"
     >
       <Container size="lg">
         <Stack gap="xs" align="center">
@@ -231,7 +227,7 @@ const ServicesSection: React.FC = () => {
           </Box>
         </Stack>
       </Container>
-    </Box>
+    </Section>
   );
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
-import { CtaButton } from "@/components/ctaButton";
+import { CtaButton } from "@/components/CtaButton";
+import { Section } from "@/components/Section";
 import {
   AspectRatio,
   Box,
@@ -9,7 +10,7 @@ import {
   Grid,
   Stack,
   Text,
-  Title
+  Title,
 } from "@mantine/core";
 import Image from "next/image";
 
@@ -18,7 +19,7 @@ const testimonials = [
     name: "Gustavo Sartori",
     role: "Desenvolvedor de Software",
     quote:
-      "Trabalho com serviços para o exterior e o escritório me ajudou desde a criação do CNPJ até escolher qual é o melhor enquadramento para reduzir os impostos pagos. Hoje tenho muito mais tranquilidade porque sei que tenho o Siscon como parceiros estratégicos da minha empresa.",
+      "Trabalho com serviços para o exterior e o escritório me ajudou desde a criação do CNPJ até escolher qual é o melhor enquadramento para reduzir os impostos pagos. Hoje tenho muito mais tranquilidade porque sei que tenho o Siscon como parceiro estratégico da minha empresa.",
   },
   {
     name: "Heloisa Rotta",
@@ -42,7 +43,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <Box bg="#F2FEFF" py={{ base: "xl"}} component="section" id="testimonials">
+    <Section id="testimonials">
       <Container size="lg">
         <Stack align="center" gap="xl">
           <Title
@@ -144,7 +145,14 @@ export default function Testimonials() {
                     {testimonial.role}
                   </Text>
                 </Stack>
-                <Text c="#021630" fz="sm" fw={400} ta="center" px="sm" maw={{base: '100%', sm: '60%'}}>
+                <Text
+                  c="#021630"
+                  fz="sm"
+                  fw={400}
+                  ta="center"
+                  px="sm"
+                  maw={{ base: "100%", sm: "60%" }}
+                >
                   {testimonial.quote}
                 </Text>
                 {index < testimonials.slice(0, 4).length - 1 && (
@@ -184,6 +192,6 @@ export default function Testimonials() {
           <CtaButton>Fale com nossos especialistas</CtaButton>
         </Stack>
       </Container>
-    </Box>
+    </Section>
   );
 }

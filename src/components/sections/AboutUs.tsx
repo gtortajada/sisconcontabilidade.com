@@ -1,10 +1,11 @@
 "use client";
 
-import { CtaButton } from "@/components/ctaButton";
+import { CtaButton } from "@/components/CtaButton";
 import { Box, Container, Flex, Stack, Text, Title, rem } from "@mantine/core";
 import Image from "next/image";
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { Section } from "../Section";
 
 const clientLogos = [
   { name: "NAC", src: "/images/logoClientes/nac.png" },
@@ -58,9 +59,9 @@ const aboutUsContent = {
 export default function AboutUs() {
   return (
     <>
-      <Box component="section" id="aboutUs">
+      <Section id="aboutUs">
         <Box visibleFrom="md" id="mainContentDesktop">
-          <Box bg="#F2FEFF" pb={rem(120)}>
+          <Box bg="#F2FEFF" pb="lg">
             <Box
               style={{
                 backgroundImage: `url('/images/bgAboutUs.jpg')`,
@@ -83,7 +84,7 @@ export default function AboutUs() {
                 }}
               />
               <Box style={{ position: "relative", zIndex: 2 }}>
-                <Box pt={rem(80)}>
+                <Box pt="xl">
                   <Container size="xl">
                     <Flex direction="row" gap={rem(60)} align="flex-start">
                       <Box flex="1">
@@ -282,7 +283,7 @@ export default function AboutUs() {
                         </Stack>
                       </Box>
                     </Box>
-                    <Box w="100%" ta="center" pt="xl">
+                    <Box w="100%" ta="center">
                       <Stack gap="lg" align="center">
                         <Box
                           w={rem(200)}
@@ -366,7 +367,7 @@ export default function AboutUs() {
             </Container>
           </Box>
         </Box>
-      </Box>
+      </Section>
     </>
   );
 }

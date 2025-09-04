@@ -1,8 +1,8 @@
-import AboutUs from "@/components/sections/aboutUs/aboutUs";
-import FAQ from "@/components/sections/faq/faq";
-import Hero from "@/components/sections/hero/hero";
-import Services from "@/components/sections/services/services";
-import Testimonials from "@/components/sections/testimonials/testimonials";
+import AboutUs from "@/components/sections/AboutUs";
+import FAQ from "@/components/sections/FAQ";
+import Hero from "@/components/sections/Hero";
+import Services from "@/components/sections/Services";
+import Testimonials from "@/components/sections/Testimonials";
 
 export default function Page() {
   return (

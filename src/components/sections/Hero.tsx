@@ -1,6 +1,7 @@
 "use client";
 
-import { CtaButton } from "@/components/ctaButton";
+import { CtaButton } from "@/components/CtaButton";
+import { Section } from "@/components/Section";
 import {
   Box,
   Card,
@@ -39,7 +40,7 @@ const cardData = [
 
 export default function Hero() {
   return (
-    <Box component="section" id="home">
+    <Section id="home">
       <Box
         style={(theme) => ({
           position: "relative",
@@ -59,7 +60,7 @@ export default function Hero() {
             backgroundPosition: "center bottom",
           },
         })}
-        mih={{ base: "100vh", md: "768px",}}
+        mih={{ base: "100vh", md: "768px" }}
         mah={{ base: "auto", md: "1000px" }}
         pb={{ base: 0, md: rem(150) }}
       >
@@ -203,6 +204,6 @@ export default function Hero() {
           </SimpleGrid>
         </Container>
       </Box>
-    </Box>
+    </Section>
   );
 }
