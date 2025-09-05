@@ -13,6 +13,7 @@ import {
   Title,
 } from "@mantine/core";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 const testimonials = [
   {
@@ -41,7 +42,19 @@ const testimonials = [
   },
 ];
 
+const TestimonialsPlayer = dynamic(
+  () =>
+    import("@/components/TestimonialsPlayer").then(
+      (mod) => mod.TestimonialsPlayer
+    ),
+  {
+    ssr: false, // Essencial para componentes que dependem de APIs do browser. [3, 4, 11]
+    loading: () => <p>Carregando vídeo...</p>, // Opcional: um placeholder de carregamento
+  }
+);
+
 export default function Testimonials() {
+  const videoSrc = "/videos/videoExperienciasReais.MOV";
   return (
     <Section id="testimonials">
       <Container size="lg">
@@ -103,25 +116,7 @@ export default function Testimonials() {
                 mx="auto"
                 style={{ borderRadius: "8px" }}
               >
-                <video
-                  poster="/images/video-poster.jpg"
-                  preload="metadata"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                >
-                  <source
-                    src="/videos/videoExperienciasReais.MOV"
-                    type="video/mp4"
-                  />
-                  Seu navegador não suporta o vídeo.
-                </video>
+                <TestimonialsPlayer src={videoSrc} />
               </AspectRatio>
             </Grid.Col>
           </Grid>
@@ -167,25 +162,7 @@ export default function Testimonials() {
               style={{ borderRadius: "8px" }}
               mt={"md"}
             >
-              <video
-                poster="/images/video-poster.jpg"
-                preload="metadata"
-                autoPlay
-                muted
-                loop
-                playsInline
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              >
-                <source
-                  src="/videos/videoExperienciasReais.MOV"
-                  type="video/mp4"
-                />
-                Seu navegador não suporta o vídeo.
-              </video>
+              <TestimonialsPlayer src={videoSrc} />
             </AspectRatio>
           </Stack>
 
