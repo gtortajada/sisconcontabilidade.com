@@ -24,7 +24,7 @@ const testimonials = [
   },
   {
     name: "Heloisa Rotta",
-    role: "Copywriter Estratégica",
+    role: "Empresária",
     quote:
       "Ótimo atendimento. Estou com eles há mais de 3 anos e me ajudaram em todo o processo de abertura da empresa. Também cuidam da holding que tenho com minha família, administrando todos os nossos bens.",
   },
@@ -36,7 +36,7 @@ const testimonials = [
   },
   {
     name: "Vitor Souza",
-    role: "Designer Autonomo",
+    role: "Designer Autônomo",
     quote:
       "Todos os profissionais são muito atenciosos e rápidos. Empresa séria, transparente e que deixa o cliente totalmente tranquilo com sua contabilidade.",
   },
@@ -48,8 +48,8 @@ const TestimonialsPlayer = dynamic(
       (mod) => mod.TestimonialsPlayer
     ),
   {
-    ssr: false, // Essencial para componentes que dependem de APIs do browser. [3, 4, 11]
-    loading: () => <p>Carregando vídeo...</p>, // Opcional: um placeholder de carregamento
+    ssr: false,
+    loading: () => <p>Carregando vídeo...</p>,
   }
 );
 

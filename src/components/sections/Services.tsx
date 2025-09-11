@@ -157,7 +157,7 @@ const ServicesSection: React.FC = () => {
               color: "#0161DF",
             }}
           >
-            A contabilidade feita para você.
+            A contabilidade feita sob medida para sua empresa.
           </Title>
           <Text
             size="lg"

@@ -20,7 +20,7 @@ const cardData = [
     icon: "/images/home/segurança.svg",
     title: "Você protegido pelo Seguro de Responsabilidade Civil.",
     description:
-      "Todos os clientes contam com a cobertura de responsabilidade civil. Se houver imprevistos fiscais e/ou contáveis, o seguro cobre todos os custos. — você não paga nada.",
+      "Todos os clientes contam com a cobertura de responsabilidade civil. Se houver imprevistos fiscais e/ou contábeis, o seguro cobre todos os custos — você não paga nada.",
   },
   {
     id: 2,
