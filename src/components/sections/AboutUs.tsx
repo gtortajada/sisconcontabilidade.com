@@ -22,6 +22,7 @@ const aboutUsContent = {
   claudemirProfile: {
     name: "Claudemir Matiusso",
     bio: "CEO da Siscon, empresário e contador. Foi conselheiro do Conselho Regional de Contabilidade (CRC-PR) por 8 anos e atuou como Vice-Presidente da Câmara de Registro (CRC-PR) por 4 anos.",
+    crc: "CRC-PR 005920/08 | 04227/O-5",
   },
   sisconHistoryCard: {
     title: "Mais do que números, contamos histórias.",
@@ -47,9 +48,11 @@ const aboutUsContent = {
         </Text>{" "}
         e, com muito orgulho, contribuímos para o crescimento de cada uma delas.
       </Text>,
-      <Text key="p4" c="#333" fz={rem(14)} lh={1.6} fw={700}>
-        Nossa missão é facilitar a gestão empresarial, criando uma relação de
-        confiança com quem sabe o que é empreender no Brasil.
+      <Text key="p4" c="#333" fz={rem(14)} lh={1.6}>
+        <Text component="span" fw={700}>
+          Nossa missão é facilitar a gestão empresarial, criando uma relação de
+          confiança com quem sabe o que é empreender no Brasil.
+        </Text>
       </Text>,
     ],
     ctaBtn: "Tire suas dúvidas pelo WhatsApp",
@@ -86,7 +89,7 @@ export default function AboutUs() {
               <Box style={{ position: "relative", zIndex: 2 }}>
                 <Box pt="xl">
                   <Container size="xl">
-                    <Flex direction="row" gap={rem(60)} align="flex-start">
+                    <Flex direction="row" gap={rem(80)} align="flex-start">
                       <Box flex="1">
                         <Box
                           bg="white"
@@ -106,7 +109,7 @@ export default function AboutUs() {
                           >
                             {aboutUsContent.sisconHistoryCard.title}
                           </Title>
-                          <Stack gap="md" ta={{ base: "center", md: "left" }}>
+                          <Stack gap="lg" ta={{ base: "center", md: "left" }}>
                             {aboutUsContent.sisconHistoryCard.highlights.map(
                               (highlight, index) => (
                                 <React.Fragment key={index}>
@@ -120,8 +123,8 @@ export default function AboutUs() {
                           </Stack>
                         </Box>
                       </Box>
-                      <Box w="30%" ta="center" pt="xl">
-                        <Stack gap="lg" align="center">
+                      <Box w="30%" ta="center">
+                        <Stack gap="xs" align="center">
                           <Box
                             w={rem(250)}
                             h={rem(315)}
@@ -161,6 +164,15 @@ export default function AboutUs() {
                             maw={rem(320)}
                           >
                             {aboutUsContent.claudemirProfile.bio}
+                          </Text>
+                          <Text
+                            c="white"
+                            fz={rem(16)}
+                            lh={1.6}
+                            ta="center"
+                            maw={rem(320)}
+                          >
+                            {aboutUsContent.claudemirProfile.crc}
                           </Text>
                         </Stack>
                       </Box>
@@ -243,7 +255,10 @@ export default function AboutUs() {
               }}
             />
 
-            <Box id="paralaxContent" style={{ position: "relative", zIndex: 2 }}>
+            <Box
+              id="paralaxContent"
+              style={{ position: "relative", zIndex: 2 }}
+            >
               <Box py="xl">
                 <Container size="xl">
                   <Flex direction="column-reverse" gap="xl" align="center">
@@ -321,6 +336,15 @@ export default function AboutUs() {
                           maw={rem(320)}
                         >
                           {aboutUsContent.claudemirProfile.bio}
+                        </Text>
+                        <Text
+                          c="white"
+                          fz={rem(14)}
+                          lh={1.6}
+                          ta="center"
+                          maw={rem(320)}
+                        >
+                          {aboutUsContent.claudemirProfile.crc}
                         </Text>
                       </Stack>
                     </Box>
